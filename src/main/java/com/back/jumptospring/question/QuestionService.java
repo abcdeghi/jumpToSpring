@@ -4,6 +4,7 @@ import com.back.jumptospring.DataNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.zip.DataFormatException;
@@ -26,4 +27,12 @@ public class QuestionService {
             throw new DataNotFoundException("Question are not Founded");
         }
     }
+
+    public void create(String subject, String content) {
+        Question q = new Question();
+        q.setSubject(subject);
+        q.setContent(content);
+        q.setCreateDate(LocalDateTime.now());
+        this.questionRepository.save(q);
+    } // 제목과 내용을 받아서 Question 에 저장
 }
