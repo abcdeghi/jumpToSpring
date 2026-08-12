@@ -1,6 +1,7 @@
 package com.back.jumptospring.answer;
 
 import com.back.jumptospring.question.Question;
+import com.back.jumptospring.user.SiteUser;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,4 +23,7 @@ public class Answer {
 
     @ManyToOne //외래키 관계 생성
     private Question question;
+
+    @ManyToOne
+    private SiteUser author;
 }
